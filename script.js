@@ -39,13 +39,15 @@ const mobileMenuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
 
 if (mobileMenuBtn && mobileMenu) {
     mobileMenuBtn.addEventListener('click', () => {
-        const isHidden = mobileMenu.classList.contains('hidden');
+        const isHidden = mobileMenu.classList.contains('max-h-0');
         if (isHidden) {
-            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.remove('max-h-0', 'opacity-0', 'pointer-events-none');
+            mobileMenu.classList.add('max-h-[400px]', 'opacity-100', 'pointer-events-auto');
             mobileMenuIcon.classList.remove('fa-bars');
             mobileMenuIcon.classList.add('fa-times');
         } else {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('max-h-[400px]', 'opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('max-h-0', 'opacity-0', 'pointer-events-none');
             mobileMenuIcon.classList.remove('fa-times');
             mobileMenuIcon.classList.add('fa-bars');
         }
@@ -55,7 +57,8 @@ if (mobileMenuBtn && mobileMenu) {
     const mobileLinks = mobileMenu.querySelectorAll('a');
     mobileLinks.forEach(link => {
         link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('max-h-[400px]', 'opacity-100', 'pointer-events-auto');
+            mobileMenu.classList.add('max-h-0', 'opacity-0', 'pointer-events-none');
             if (mobileMenuIcon) {
                 mobileMenuIcon.classList.remove('fa-times');
                 mobileMenuIcon.classList.add('fa-bars');
