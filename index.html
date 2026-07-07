@@ -65,8 +65,18 @@
                     <a href="https://wa.me/your-number" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 transition-all shadow-sm">Hubungi Kami</a>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button class="text-slate-600"><i class="fas fa-bars text-xl"></i></button>
+                    <button id="mobile-menu-btn" class="focus:outline-none"><i id="mobile-btn-icon" class="fas fa-bars text-xl text-white/90 transition-colors duration-300"></i></button>
                 </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Container -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 shadow-md">
+            <div class="px-4 pt-4 pb-6 flex flex-col space-y-4">
+                <a href="#apps" class="text-slate-600 font-medium hover:text-emerald-600">Aplikasi</a>
+                <a href="#about" class="text-slate-600 font-medium hover:text-emerald-600">Tentang</a>
+                <a href="#contact" class="text-slate-600 font-medium hover:text-emerald-600">Kontak</a>
+                <a href="https://wa.me/your-number" class="bg-emerald-600 text-white px-5 py-2 rounded-full text-sm font-semibold hover:bg-emerald-700 text-center shadow-sm mt-2">Hubungi Kami</a>
             </div>
         </div>
     </nav>
@@ -316,72 +326,6 @@
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true,
-            easing: 'ease-out-cubic'
-        });
-
-        function openModal() {
-            const modal = document.getElementById('ujianModal');
-            const content = document.getElementById('modalContent');
-
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-
-            setTimeout(() => {
-                content.classList.remove('modal-hidden');
-                content.classList.add('modal-visible');
-            }, 10);
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('ujianModal');
-            const content = document.getElementById('modalContent');
-
-            content.classList.remove('modal-visible');
-            content.classList.add('modal-hidden');
-
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 300);
-        }
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            const logo1 = document.getElementById('logo-text-1');
-            const logo2 = document.getElementById('logo-text-2');
-            const logoSpan = document.getElementById('logo-text-span');
-            const links = document.querySelectorAll('.nav-link');
-
-            if (window.scrollY > 50) {
-                navbar.classList.remove('bg-transparent', 'border-transparent', 'py-2');
-                navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'border-slate-200', 'shadow-sm', 'py-0');
-                
-                if(logo1) { logo1.classList.remove('text-white'); logo1.classList.add('text-slate-800'); }
-                if(logoSpan) { logoSpan.classList.remove('text-emerald-400'); logoSpan.classList.add('text-orange-500'); }
-                if(logo2) { logo2.classList.remove('text-white/80'); logo2.classList.add('text-slate-500'); }
-                links.forEach(l => {
-                    l.classList.remove('text-white/90', 'hover:text-emerald-300');
-                    l.classList.add('text-slate-600', 'hover:text-emerald-600');
-                });
-            } else {
-                navbar.classList.add('bg-transparent', 'border-transparent', 'py-2');
-                navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'border-slate-200', 'shadow-sm', 'py-0');
-                
-                if(logo1) { logo1.classList.remove('text-slate-800'); logo1.classList.add('text-white'); }
-                if(logoSpan) { logoSpan.classList.remove('text-orange-500'); logoSpan.classList.add('text-emerald-400'); }
-                if(logo2) { logo2.classList.remove('text-slate-500'); logo2.classList.add('text-white/80'); }
-                links.forEach(l => {
-                    l.classList.remove('text-slate-600', 'hover:text-emerald-600');
-                    l.classList.add('text-white/90', 'hover:text-emerald-300');
-                });
-            }
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
